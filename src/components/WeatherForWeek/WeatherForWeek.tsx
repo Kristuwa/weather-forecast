@@ -22,8 +22,8 @@ export const WeatherForWeek: FC<WeekProps> = ({city}) => {
 			const {
 			  data: { days },
 			} = result;
-			const onlyWeek = days.slice(0, 7);
-			setWeatherForWeek(onlyWeek);
+			
+			setWeatherForWeek(days);
 		 } 
 		getWeather(city.name, city.startDate, city.endDate);
 	 }, [city]);

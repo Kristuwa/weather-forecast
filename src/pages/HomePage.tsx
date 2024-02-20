@@ -106,7 +106,6 @@ export const HomePage: FC = () => {
   };
 
   const onNextItem = () => {
-	
     const index = trips.findIndex(trip => trip.id === selectedCity.id);
 
 	 console.log(index);
