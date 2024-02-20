@@ -1,0 +1,50 @@
+.title {
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 30px;
+}
+
+.list {
+	display: flex;
+gap: 20px;
+
+}
+
+.button {
+	width: 200px;
+	display: flex;
+	gap:10px;
+	flex-direction: column;
+	height: 277px;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgb(62, 62, 104);
+	border-radius: 10px;
+
+	transition: transform 500ms linear;
+}
+
+.button:hover, .button:focus {
+	transform: scale(1.05);
+}
+
+.container-main {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.container-main .list-container {
+	width: 85%;
+}
+
+.text {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.buttons-div {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 5px;
+}

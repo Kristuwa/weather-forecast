@@ -1,0 +1,62 @@
+.card {
+	background-image: url("../../../public/WeatherIcons-main/iStock-537351705-780x405.jpg");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	width: 20%;
+	height: 500px;
+	color: #000000;
+	padding: 100px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.card__day {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.card__temp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:10px;
+	margin-bottom: 20px;
+}
+
+.card__temp p {
+	font-size: 20px;
+}
+
+.card__city {
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.card__list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.card__item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap:5px;
+}
+
+.card__text {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.day-text {
+	color: #a1a1a1;
+}

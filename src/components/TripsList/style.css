@@ -1,0 +1,42 @@
+.trips__list {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+gap: 20px;
+margin-bottom: 40px;
+}
+
+.trips__item {
+	cursor: pointer;
+	width: 200px;
+	height: 277px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	border: 1px solid rgb(62, 62, 104);
+	border-radius: 10px;
+
+	transition: transform 500ms linear;
+}
+
+.trips__item:hover, .trips__item:focus {
+	transform: scale(1.05);
+}
+.trips__img {
+	display: block;
+	width: 100%;
+	height: 200px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.trips__text {
+	font-size: 18px;
+}
+
+.trips__date {
+	font-size: 14px;
+	color: #a1a1a1;
+}
