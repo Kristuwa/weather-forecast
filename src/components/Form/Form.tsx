@@ -69,6 +69,7 @@ onSubmit={onFormSubmit}
 <Form className="formik">
 <label className="label" htmlFor="name"><span className="accent">*</span> City</label>
 <Field className="formik-input" id="name" name="name" as="select" placeholder="Please, select a city">
+<option key="Paris initial" value="Paris initial">Paris</option>
 {data.map(({id, name})=> <option key={id} value={name}>{name}</option>)}
  </Field>
 <label  className="label" htmlFor="startDate"><span className="accent">*</span>Start date</label>

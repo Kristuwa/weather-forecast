@@ -21,7 +21,7 @@ export const TripsList: FC<TripsListProps> = ({trips, onChooseCity}) => {
 		 <li className="trips__item" key={id} onClick={()=> {
 			onChooseCity({ id, img, name, startDate, endDate });
 		 }}>
-			<img className="trips__img" src={img} alt="city" />
+			<img className="trips__img" src={img} alt="city" height={170}/>
 			<p className="trips__text">{name}</p>
 			<p className="trips__date">
 			  {startDate} - {endDate}

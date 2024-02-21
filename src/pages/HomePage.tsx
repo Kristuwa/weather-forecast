@@ -59,7 +59,7 @@ export const HomePage: FC = () => {
   }, [selectedCity]);
 
   const filterTrips = trips.filter(trip =>
-    trip.name.toLowerCase().includes(searchText)
+    trip.name?.toLowerCase().includes(searchText)
   );
 
   const onPrevItem = () => {
