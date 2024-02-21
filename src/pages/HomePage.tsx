@@ -9,6 +9,7 @@ import './pagesStyle.css';
 import { Search } from '../components/Search/Search';
 import { BtnPrev } from '../components/BtnPrev/BtnPrev';
 import { BtnNext } from '../components/BtnNext/BtnNext';
+import data from "../data.json";
 
 export const API_KEY = '9BNRSZ6U4FJTP8NR74F69B5S9';
 // 'E388VXZX28JTV2DGBV2AP7MEN'
@@ -19,29 +20,13 @@ export const HomePage: FC = () => {
     const storedTrips = localStorage.getItem('TRIPS');
     return storedTrips && storedTrips !== 'null'
       ? JSON.parse(storedTrips)
-      : [
-          {
-            id: '1',
-            img: '',
-            name: 'Berlin',
-            startDate: '14.07.2024',
-            endDate: '21.07.2024',
-          },
-          {
-            id: '2',
-            img: '',
-            name: 'Istanbul',
-            startDate: '10.07.2024',
-            endDate: '17.07.2024',
-          },
-          {
-            id: '3',
-            img: '',
-            name: 'Rome',
-            startDate: '14.08.2024',
-            endDate: '25.08.2024',
-          },
-        ];
+      : [{
+			id: '21',
+			img: 'https://pixabay.com/get/gefc06a22447b5c79466a370dae2de0495729bda4d3c75863a26aedc1f3b0a49d52a615fea40d8b55ed88560ade1931e0c6308ea7698d48c016dc1c2d27b79324_640.jpg',
+			name: 'Berlin',
+			startDate: '14.07.2024',
+			endDate: '21.07.2024',
+		 }];
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState<TripObj>(() => {
@@ -51,7 +36,7 @@ export const HomePage: FC = () => {
       ? JSON.parse(storedCity)
       : {
           id: '1',
-          img: '',
+          img: 'https://pixabay.com/get/gefc06a22447b5c79466a370dae2de0495729bda4d3c75863a26aedc1f3b0a49d52a615fea40d8b55ed88560ade1931e0c6308ea7698d48c016dc1c2d27b79324_640.jpg',
           name: 'Berlin',
           startDate: '14.07.2024',
           endDate: '21.07.2024',
@@ -67,25 +52,7 @@ export const HomePage: FC = () => {
   }
 
   useEffect(() => {
-    const hasEmptyImages = trips.some(trip => trip.img === '');
-
-    const updateTrips = async () => {
-      const updatedTrips = await Promise.all(
-        trips.map(async trip => {
-          if (trip.img === '') {
-            const imgUrl = await getImageCity(trip.name);
-            return { ...trip, img: imgUrl };
-          } else {
-            return trip;
-          }
-        })
-      );
-      setTrips(updatedTrips);
-      localStorage.setItem('TRIPS', JSON.stringify(updatedTrips));
-    };
-    if (hasEmptyImages) {
-      updateTrips();
-    }
+      localStorage.setItem('TRIPS', JSON.stringify(trips));
   }, [trips]);
 
   useEffect(() => {
