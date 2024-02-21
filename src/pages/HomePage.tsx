@@ -10,8 +10,8 @@ import { BtnPrev } from '../components/BtnPrev/BtnPrev';
 import { BtnNext } from '../components/BtnNext/BtnNext';
 
 
-export const API_KEY = '9BNRSZ6U4FJTP8NR74F69B5S9';
-// 'E388VXZX28JTV2DGBV2AP7MEN'
+export const API_KEY = 'E388VXZX28JTV2DGBV2AP7MEN';
+// '9BNRSZ6U4FJTP8NR74F69B5S9'
 
 export const HomePage: FC = () => {
   const [searchText, setSearchText] = useState('');
@@ -106,7 +106,7 @@ export const HomePage: FC = () => {
           date={selectedCity.startDate}
         />
       </div>
-      {isModalOpen && <Modal onModalClose={modalClose} />}
+      {isModalOpen && <Modal setTrips={setTrips} onModalClose={modalClose} />}
     </div>
   );
 };

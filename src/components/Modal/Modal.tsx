@@ -1,13 +1,15 @@
-import React,{FC, useEffect} from "react";
+import React,{Dispatch, FC, SetStateAction, useEffect} from "react";
 import "./modal.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FormComponent } from "../Form/Form";
+import { TripObj } from "../TripsList/TripsList";
 
 interface ModalProps {
 	onModalClose: ()=>void;
+	setTrips: Dispatch<SetStateAction<TripObj[]>>;
 }
 
-export const Modal: FC<ModalProps> = ({onModalClose})=> {
+export const Modal: FC<ModalProps> = ({onModalClose, setTrips})=> {
 	useEffect(() => {
 		window.addEventListener('keydown', onCloseEsc);
   
@@ -31,7 +33,7 @@ export const Modal: FC<ModalProps> = ({onModalClose})=> {
 		<div className="modal">
 			<p className="modal__title">Create trip</p>
 			<button type="button" className="btn-modal" aria-label="close" onClick={onModalClose}><AiOutlineCloseCircle width={50}/></button>
-		<FormComponent modalClose={onModalClose}/>
+		<FormComponent setTrips={setTrips} modalClose={onModalClose}/>
 		</div>
 		</div>
 }
