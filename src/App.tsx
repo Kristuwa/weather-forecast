@@ -18,13 +18,13 @@ const [isLoggedIn, setIsLoggedIn]: [boolean, React.Dispatch<React.SetStateAction
 	  <Route
 		 index
 		 element={
-			<RestrictedRoute isLoggedIn={isLoggedIn} redirectTo="/contacts" component={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+			<RestrictedRoute isLoggedIn={isLoggedIn} redirectTo="/trips" component={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
 		 }
 	  />
 	  <Route
-		 path="/contacts"
+		 path="/trips"
 		 element={
-			<PrivateRoute isLoggedIn={isLoggedIn} redirectTo="/login" component={<HomePage />} />
+			<PrivateRoute isLoggedIn={isLoggedIn} redirectTo="/" component={<HomePage />} />
 		 }
 	  />
 	<Route path="*" element={<NotFound />} />

@@ -98,7 +98,7 @@ export const HomePage: FC = () => {
 
   const onPrevItem = () => {
    const index = trips.findIndex(trip => trip.id === selectedCity.id);
-	 console.log(index);
+
 	 const newIndex = index - 1;
     if (index > 0) {
       setSelectedCity(trips[newIndex]);
@@ -108,7 +108,6 @@ export const HomePage: FC = () => {
   const onNextItem = () => {
     const index = trips.findIndex(trip => trip.id === selectedCity.id);
 
-	 console.log(index);
     if (index < trips.length - 1 && index >= 0) {
 		const newIndex = index + 1;
       setSelectedCity(trips[newIndex]);
@@ -127,7 +126,7 @@ export const HomePage: FC = () => {
         <div className="list-container">
           <div className="list">
             <TripsList trips={filterTrips} onChooseCity={setSelectedCity} />
-            <button className="button" onClick={openModal} type="button">
+            <button className="button-add" onClick={openModal} type="button">
               <FaPlus width={40} />
               Add trip
             </button>

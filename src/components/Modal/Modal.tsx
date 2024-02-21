@@ -1,4 +1,6 @@
 import React,{FC, useEffect} from "react";
+import "./modal.css";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 interface ModalProps {
 	onModalClose: ()=>void;
@@ -24,5 +26,9 @@ export const Modal: FC<ModalProps> = ({onModalClose})=> {
 		  onModalClose();
 		}
 	 };
-	return <div onClick={onCloseBackdrop}>Modal</div>
+	return <div className="backdrop" onClick={onCloseBackdrop}>
+		<div className="modal">
+			<button type="button" className="btn-modal" aria-label="close" onClick={onModalClose}><AiOutlineCloseCircle width={30}/></button>
+		</div>
+		</div>
 }
