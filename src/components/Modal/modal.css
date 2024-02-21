@@ -9,6 +9,7 @@ z-index: 10;
 }
 
 .modal {
+	padding: 30px 20px;
 	position: absolute;
 	width:600px;
 	height: 100%;
@@ -31,4 +32,10 @@ z-index: 10;
 
 .btn-modal:hover, .btn-modal:focus {
 	transform: scale(1.05);
+}
+
+.modal__title {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #a1a1a1;
+	margin-bottom: 20px;
 }

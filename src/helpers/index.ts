@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export function convertDateFormat(dateString:string): string {
 	const parts = dateString.split('.');
 	
@@ -17,9 +15,3 @@ export function convertDateFormat(dateString:string): string {
 	return daysOfWeek[dayOfWeekIndex];
  }
  
- export async function getImageCity(city:string) {
-	const cityName = city.toLowerCase();
-const result = await axios.get(`https://pixabay.com/api/?key=30242343-f6d10ec55d07081d5dcce6a52&q=${cityName}+city+place&image_type=photo`);
-const {data: {hits}} = result;
-return hits[0]?.webformatURL;
- }

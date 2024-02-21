@@ -29,8 +29,9 @@ export const Modal: FC<ModalProps> = ({onModalClose})=> {
 	 };
 	return <div className="backdrop" onClick={onCloseBackdrop}>
 		<div className="modal">
-			<button type="button" className="btn-modal" aria-label="close" onClick={onModalClose}><AiOutlineCloseCircle width={30}/></button>
-		<FormComponent />
+			<p className="modal__title">Create trip</p>
+			<button type="button" className="btn-modal" aria-label="close" onClick={onModalClose}><AiOutlineCloseCircle width={50}/></button>
+		<FormComponent modalClose={onModalClose}/>
 		</div>
 		</div>
 }

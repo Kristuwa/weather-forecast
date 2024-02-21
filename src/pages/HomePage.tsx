@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Modal } from '../components/Modal/Modal';
-import { getImageCity } from '../helpers';
 import { FaPlus } from 'react-icons/fa6';
 import { WeatherToday } from '../components/WeatherToday/WeatherToday';
 import { TripObj, TripsList } from '../components/TripsList/TripsList';
@@ -9,7 +8,7 @@ import './pagesStyle.css';
 import { Search } from '../components/Search/Search';
 import { BtnPrev } from '../components/BtnPrev/BtnPrev';
 import { BtnNext } from '../components/BtnNext/BtnNext';
-import data from "../data.json";
+
 
 export const API_KEY = '9BNRSZ6U4FJTP8NR74F69B5S9';
 // 'E388VXZX28JTV2DGBV2AP7MEN'
@@ -35,7 +34,7 @@ export const HomePage: FC = () => {
     return storedCity && storedCity !== 'null'
       ? JSON.parse(storedCity)
       : {
-          id: '1',
+          id: '21',
           img: 'https://pixabay.com/get/gefc06a22447b5c79466a370dae2de0495729bda4d3c75863a26aedc1f3b0a49d52a615fea40d8b55ed88560ade1931e0c6308ea7698d48c016dc1c2d27b79324_640.jpg',
           name: 'Berlin',
           startDate: '14.07.2024',
