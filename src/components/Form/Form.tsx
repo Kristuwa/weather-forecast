@@ -6,6 +6,13 @@ import "./form.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { dateFormatting } from "../../helpers";
 import { TripObj } from "../TripsList/TripsList";
+import * as Yup from 'yup';
+ 
+const SubmitSchema = Yup.object().shape({
+  name: Yup.string()
+	 .min(1, 'Choose city')
+	 .required('Required, Choose city')
+});
 
 const MyDatePicker = ({ name = "" }) => {
   const [field, meta, helpers] = useField(name);
@@ -64,21 +71,24 @@ initialValues={{
   startDate: new Date(),
   endDate: new Date(),
 }}
+validationSchema={SubmitSchema}
 onSubmit={onFormSubmit}
+
 >
-<Form className="formik">
+{({ errors, touched }) => (<Form className="formik">
 <label className="label" htmlFor="name"><span className="accent">*</span> City</label>
 <Field className="formik-input" id="name" name="name" as="select" placeholder="Please, select a city">
 <option key="Paris initial" value="Paris initial">Paris</option>
 {data.map(({id, name})=> <option key={id} value={name}>{name}</option>)}
  </Field>
+ {errors.name && touched.name ? <div style={{color: "red"}}>{errors.name}</div> : null}
 <label  className="label" htmlFor="startDate"><span className="accent">*</span>Start date</label>
 	<Field placeholder="Select date" className="formik-input" id="startDate" name="startDate" render={({ field, form: { isSubmitting } }: FieldProps<Values>)=><MyDatePicker {...field} name="startDate" />} ></Field>
-
+	
 	<label  className="label" htmlFor="endDate"><span className="accent">*</span>End date</label>
 	<Field placeholder="Select date" className="formik-input" id="endDate" name="endDate" render={({ field, form: { isSubmitting } }: FieldProps<Values>)=><MyDatePicker {...field} name="endDate" />} ></Field>
 
   <button className="btn-submit" type="submit">Submit</button>
-</Form>
+</Form>)}
 </Formik>
 </div>};

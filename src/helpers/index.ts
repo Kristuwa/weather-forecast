@@ -24,3 +24,10 @@ export function dateFormatting (date: Date): string {
 	const formattedDate = `${day}.${month}.${year}`;
 	return formattedDate;
 }
+
+export function parseDate(date: string) {
+	const parts = date.split('.');
+  
+	const [day, month, year] = parts;
+	return `${year}-${month}-${day}`;
+}

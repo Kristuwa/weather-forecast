@@ -8,26 +8,32 @@ import './pagesStyle.css';
 import { Search } from '../components/Search/Search';
 import { BtnPrev } from '../components/BtnPrev/BtnPrev';
 import { BtnNext } from '../components/BtnNext/BtnNext';
-
+import { BtnSorted } from '../components/BtnSorted/BtnSorted';
+import { parseDate } from '../helpers';
 
 export const API_KEY = 'E388VXZX28JTV2DGBV2AP7MEN';
 // '9BNRSZ6U4FJTP8NR74F69B5S9'
 
 export const HomePage: FC = () => {
   const [searchText, setSearchText] = useState('');
+  
   const [trips, setTrips] = useState<TripObj[]>(() => {
     const storedTrips = localStorage.getItem('TRIPS');
     return storedTrips && storedTrips !== 'null'
       ? JSON.parse(storedTrips)
-      : [{
-			id: '21',
-			img: 'https://pixabay.com/get/gefc06a22447b5c79466a370dae2de0495729bda4d3c75863a26aedc1f3b0a49d52a615fea40d8b55ed88560ade1931e0c6308ea7698d48c016dc1c2d27b79324_640.jpg',
-			name: 'Berlin',
-			startDate: '14.07.2024',
-			endDate: '21.07.2024',
-		 }];
+      : [
+          {
+            id: '21',
+            img: 'https://pixabay.com/get/gefc06a22447b5c79466a370dae2de0495729bda4d3c75863a26aedc1f3b0a49d52a615fea40d8b55ed88560ade1931e0c6308ea7698d48c016dc1c2d27b79324_640.jpg',
+            name: 'Berlin',
+            startDate: '14.07.2024',
+            endDate: '21.07.2024',
+          },
+        ];
   });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [selectedCity, setSelectedCity] = useState<TripObj>(() => {
     const storedCity = localStorage.getItem('SELECTED_CITY');
 
@@ -51,7 +57,7 @@ export const HomePage: FC = () => {
   }
 
   useEffect(() => {
-      localStorage.setItem('TRIPS', JSON.stringify(trips));
+    localStorage.setItem('TRIPS', JSON.stringify(trips));
   }, [trips]);
 
   useEffect(() => {
@@ -63,9 +69,9 @@ export const HomePage: FC = () => {
   );
 
   const onPrevItem = () => {
-   const index = trips.findIndex(trip => trip.id === selectedCity.id);
+    const index = trips.findIndex(trip => trip.id === selectedCity.id);
 
-	 const newIndex = index - 1;
+    const newIndex = index - 1;
     if (index > 0) {
       setSelectedCity(trips[newIndex]);
     }
@@ -75,10 +81,21 @@ export const HomePage: FC = () => {
     const index = trips.findIndex(trip => trip.id === selectedCity.id);
 
     if (index < trips.length - 1 && index >= 0) {
-		const newIndex = index + 1;
+      const newIndex = index + 1;
       setSelectedCity(trips[newIndex]);
     }
   };
+
+  function onSort() {
+    const sortedTrips = [...trips].sort((a, b) => {
+      const parseA = parseDate(a.startDate);
+      const parseB = parseDate(b.startDate);
+
+      return Date.parse(parseA) - Date.parse(parseB);
+    });
+
+    setTrips(sortedTrips);
+  }
 
   return (
     <div className="container">
@@ -87,6 +104,7 @@ export const HomePage: FC = () => {
       <div className="buttons-div">
         <BtnPrev prevItem={onPrevItem} />
         <BtnNext nextItem={onNextItem} />
+        <BtnSorted onSort={onSort} />
       </div>
       <div className="container-main">
         <div className="list-container">
