@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/weather-forecast/static/css/main.f2e15267.css",
-    "main.js": "/weather-forecast/static/js/main.ddc957a8.js",
+    "main.css": "/weather-forecast/static/css/main.40b00197.css",
+    "main.js": "/weather-forecast/static/js/main.e3301ab6.js",
+    "static/media/main.jpg": "/weather-forecast/static/media/main.66698a6450e58dd52cf3.jpg",
     "static/media/iStock-537351705-780x405.jpg": "/weather-forecast/static/media/iStock-537351705-780x405.5f1f0d539d0f07533f30.jpg",
     "static/media/snow-showers-night.svg": "/weather-forecast/static/media/snow-showers-night.a917b111f11bd1e967cf.svg",
     "static/media/snow-showers-day.svg": "/weather-forecast/static/media/snow-showers-day.9b361803bd2c718d208f.svg",
@@ -26,11 +27,11 @@
     "static/media/clear-night.svg": "/weather-forecast/static/media/clear-night.7228ebde1a1cbbabeed4.svg",
     "index.html": "/weather-forecast/index.html",
     "static/media/clear-day.svg": "/weather-forecast/static/media/clear-day.e6541ce84a82ea86deaf.svg",
-    "main.f2e15267.css.map": "/weather-forecast/static/css/main.f2e15267.css.map",
-    "main.ddc957a8.js.map": "/weather-forecast/static/js/main.ddc957a8.js.map"
+    "main.40b00197.css.map": "/weather-forecast/static/css/main.40b00197.css.map",
+    "main.e3301ab6.js.map": "/weather-forecast/static/js/main.e3301ab6.js.map"
   },
   "entrypoints": [
-    "static/css/main.f2e15267.css",
-    "static/js/main.ddc957a8.js"
+    "static/css/main.40b00197.css",
+    "static/js/main.e3301ab6.js"
   ]
 }
