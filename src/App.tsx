@@ -10,7 +10,7 @@ import { NotFound } from "./pages/NotFound";
 
 const App: FC = () => {
 
-const [isLoggedIn, setIsLoggedIn]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(true);
+const [isLoggedIn, setIsLoggedIn]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false);
 
 
   return (<>
