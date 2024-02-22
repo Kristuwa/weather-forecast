@@ -16,7 +16,7 @@ export const API_KEY = 'E388VXZX28JTV2DGBV2AP7MEN';
 
 export const HomePage: FC = () => {
   const [searchText, setSearchText] = useState('');
-  
+
   const [trips, setTrips] = useState<TripObj[]>(() => {
     const storedTrips = localStorage.getItem('TRIPS');
     return storedTrips && storedTrips !== 'null'
